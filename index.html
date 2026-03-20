@@ -23,38 +23,38 @@
   --t:#64ffda;--t2:rgba(100,255,218,0.07);--t3:rgba(100,255,218,0.13);
   --pink:#ff80ab;--pink2:rgba(255,128,171,0.07);
   --orange:#ff9100;--orange2:rgba(255,145,0,0.07);
-  --rad:8px;--rad2:6px;--sb:228px;
+  --rad:8px;--rad2:6px;--sb:190px;
   --fh:'Poppins',sans-serif;--fb:'Inter',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
-html,body{height:100%;background:var(--bg0);color:var(--text);font-family:var(--fb);font-size:13px;}
+html,body{height:100%;background:var(--bg0);color:var(--text);font-family:var(--fb);font-size:13px;} html{scroll-behavior:smooth;}
 ::-webkit-scrollbar{width:3px;height:3px;}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
-.shell{display:flex;height:100vh;overflow:hidden;position:relative;}
+.shell{display:flex;height:100vh;overflow:hidden;}
 
 /* SIDEBAR */
 .sidebar{width:var(--sb);min-width:var(--sb);background:var(--bg1);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;overflow-y:auto;}
-.sb-brand{padding:18px 16px 14px;border-bottom:1px solid var(--border);}
+.sb-brand{padding:14px 14px 12px;border-bottom:1px solid var(--border);}
 .sb-logo{font-family:var(--fh);font-weight:900;font-size:14px;color:var(--g);letter-spacing:.1em;}
 .sb-sub{font-size:10px;color:var(--text3);margin-top:2px;font-family:var(--fb);}
-.sb-year-sel{margin:10px 16px 0;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rad2);padding:6px 10px;color:var(--text);font-size:12px;font-family:var(--fb);width:calc(100% - 32px);outline:none;cursor:pointer;}
+.sb-year-sel{margin:8px 14px 0;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rad2);padding:6px 10px;color:var(--text);font-size:12px;font-family:var(--fb);width:calc(100% - 28px);outline:none;cursor:pointer;}
 .sb-year-sel:focus{border-color:var(--g);}
 .sb-nav{padding:6px 0;flex:1;}
-.sb-sec{padding:10px 16px 3px;font-size:9px;font-weight:700;color:var(--text4);letter-spacing:.14em;text-transform:uppercase;font-family:var(--fh);}
-.sb-item{display:flex;align-items:center;gap:8px;padding:6px 16px;cursor:pointer;color:var(--text3);font-size:12px;font-weight:500;border-left:2px solid transparent;transition:all .12s;font-family:var(--fb);}
+.sb-sec{padding:9px 14px 3px;font-size:9px;font-weight:700;color:var(--text4);letter-spacing:.14em;text-transform:uppercase;font-family:var(--fh);}
+.sb-item{display:flex;align-items:center;gap:7px;padding:5px 14px;cursor:pointer;color:var(--text3);font-size:11px;font-weight:500;border-left:2px solid transparent;transition:all .12s;font-family:var(--fb);}
 .sb-item:hover{color:var(--text2);background:rgba(255,255,255,.02);}
 .sb-item.active{color:var(--text);border-left-color:var(--g);background:rgba(0,230,118,.04);}
 .sb-dot{width:5px;height:5px;border-radius:50%;background:var(--text4);flex-shrink:0;transition:background .12s;}
 .sb-item.active .sb-dot{background:var(--g);}
-.sb-footer{padding:12px 16px;border-top:1px solid var(--border);}
-.streak-pill{background:var(--bg3);border-radius:var(--rad2);padding:9px 12px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
-.streak-val{font-family:var(--fh);font-weight:800;font-size:22px;color:var(--a);line-height:1;}
+.sb-footer{padding:10px 14px;border-top:1px solid var(--border);}
+.streak-pill{background:var(--bg3);border-radius:var(--rad2);padding:8px 11px;border:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.streak-val{font-family:var(--fh);font-weight:800;font-size:20px;color:var(--a);line-height:1;}
 .streak-info{text-align:right;}
 .streak-lbl{font-size:10px;color:var(--text3);font-family:var(--fb);}
 .age-display{font-size:10px;color:var(--text3);margin-top:6px;font-family:var(--fb);text-align:center;}
 
 /* MAIN */
-.main{flex:1;overflow-y:auto;background:var(--bg0);}
+.main{flex:1;overflow-y:auto;background:var(--bg0);margin-left:var(--sb);}
 .page{display:none;padding:26px 30px;min-height:100%;animation:fadeUp .2s ease;}
 .page.active{display:block;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
@@ -310,154 +310,211 @@ html,body{height:100%;background:var(--bg0);color:var(--text);font-family:var(--
 .dl-hab-dot{width:8px;height:8px;border-radius:50%;}
 .dl-mood{font-size:10px;color:var(--text3);font-family:var(--fb);}
 
-/* ============================================================
-   MOBILE RESPONSIVE — Full rewrite for phones
-   ============================================================ */
+/* =====================================================
+   FULL MOBILE RESPONSIVE SYSTEM
+   ===================================================== */
 
-/* Mobile bottom nav bar */
-.mobile-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg1);border-top:1px solid var(--border2);z-index:200;padding:0;safe-area-inset-bottom:env(safe-area-inset-bottom);}
-.mobile-nav-inner{display:flex;align-items:center;justify-content:space-around;padding:8px 4px calc(8px + env(safe-area-inset-bottom));}
-.mnav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 10px;cursor:pointer;color:var(--text3);border-radius:var(--rad2);transition:all .12s;min-width:48px;}
-.mnav-item.active{color:var(--g);}
-.mnav-icon{font-size:18px;line-height:1;}
-.mnav-lbl{font-size:9px;font-weight:500;font-family:var(--fh);}
+/* Hamburger */
+.hamburger{
+  display:none;position:fixed;top:10px;left:10px;z-index:400;
+  width:38px;height:38px;border-radius:var(--rad2);
+  background:var(--bg2);border:1px solid var(--border2);
+  align-items:center;justify-content:center;
+  cursor:pointer;flex-direction:column;gap:4px;
+  -webkit-tap-highlight-color:transparent;
+}
+.hamburger span{width:16px;height:2px;background:var(--text);border-radius:1px;display:block;transition:all .2s;}
 
-/* Hamburger button */
-.hamburger{display:none;position:fixed;top:12px;left:12px;z-index:300;width:40px;height:40px;border-radius:var(--rad2);background:var(--bg2);border:1px solid var(--border2);align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px;}
-.hamburger span{width:18px;height:2px;background:var(--text);border-radius:1px;transition:all .2s;}
-
-/* Sidebar overlay on mobile */
-.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:150;}
+/* Overlay */
+.sidebar-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.72);z-index:300;
+}
 .sidebar-overlay.open{display:block;}
 
-@media (max-width: 768px) {
-  /* Show hamburger & mobile nav */
+/* Bottom nav */
+.mobile-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;
+  background:var(--bg1);border-top:1px solid var(--border2);
+  z-index:400;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.mobile-nav-inner{
+  display:flex;align-items:center;justify-content:space-around;
+  padding:6px 0 8px;
+}
+.mnav-item{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:5px 12px;cursor:pointer;color:var(--text3);
+  border-radius:var(--rad2);transition:all .12s;
+  -webkit-tap-highlight-color:transparent;
+  min-width:52px;
+}
+.mnav-item.active{color:var(--g);}
+.mnav-icon{font-size:19px;line-height:1;}
+.mnav-lbl{font-size:9px;font-weight:600;font-family:var(--fh);}
+
+/* Touch targets */
+.btn,.ichk,.hcell,.juz-box,.chain-dot,.iman-btn,.score-btn,
+.sb-item,.mnav-item,button{
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* iOS smooth scroll */
+.main,.sidebar,.modal{-webkit-overflow-scrolling:touch;}
+
+@media (max-width:768px){
+
+  /* Show mobile UI */
   .hamburger{display:flex;}
   .mobile-nav{display:block;}
 
-  /* Sidebar becomes slide-in drawer */
-  .sidebar{
-    position:fixed;
-    left:-240px;
-    top:0;
-    height:100vh;
-    z-index:200;
-    transition:left .25s ease;
-    width:240px;
-    min-width:240px;
+  /* ── LAYOUT ── */
+  .shell{
+    display:block;
+    height:100%;
+    overflow:visible;
   }
-  .sidebar.open{left:0;}
 
-  /* Main takes full width */
-  .shell{display:block;}
+  /* CRITICAL: main scrolls freely */
   .main{
     margin-left:0 !important;
     width:100%;
-    padding-bottom:80px; /* space for bottom nav */
+    min-height:100vh;
+    overflow-y:auto !important;
+    overflow-x:hidden;
+    padding-bottom:90px;
+    height:auto !important;
   }
 
-  /* Pages padding */
-  .page{padding:16px 14px;}
+  /* Pages */
+  .page{
+    padding:58px 13px 20px !important;
+    min-height:100vh;
+    display:none;
+  }
+  .page.active{display:block;}
 
-  /* Topbar stacks on mobile */
-  .topbar{flex-direction:column;align-items:flex-start;gap:10px;margin-top:8px;}
-  .topbar-right{width:100%;display:flex;flex-wrap:wrap;gap:6px;}
-  .topbar-right .btn{flex:1;justify-content:center;min-width:80px;}
+  /* Sidebar drawer */
+  .sidebar{
+    position:fixed !important;
+    left:-200px;
+    top:0;bottom:0;
+    width:200px !important;
+    min-width:200px !important;
+    height:100% !important;
+    z-index:350;
+    transition:left .22s ease;
+    overflow-y:auto;
+  }
+  .sidebar.open{left:0 !important;}
 
-  /* All grids collapse to 1 column */
+  /* ── GRIDS ── */
   .g2,.g3,.g4,.g5{grid-template-columns:1fr !important;}
+  #dash-stats-grid{grid-template-columns:1fr 1fr 1fr !important;}
 
-  /* 2-col grid for stats only */
-  .g4.stats-grid,.stat-row-4{grid-template-columns:1fr 1fr !important;}
+  /* ── TYPOGRAPHY ── */
+  .pg-title{font-size:17px;}
+  .banner-big{font-size:32px;}
+  .banner{padding:13px 14px;gap:10px;flex-wrap:wrap;}
+  .banner-info h2{font-size:13px;}
+  .banner-info p{font-size:10px;}
 
-  /* Page title smaller */
-  .pg-title{font-size:18px;}
-  .banner-big{font-size:36px;}
-  .banner{padding:14px 16px;gap:12px;}
-  .banner-info h2{font-size:14px;}
+  /* ── TOPBAR ── */
+  .topbar{
+    flex-direction:column;align-items:flex-start;
+    gap:8px;margin-bottom:14px;
+    padding-bottom:12px;
+  }
+  .topbar-right{
+    width:100%;display:flex;
+    flex-wrap:wrap;gap:6px;
+  }
+  .topbar-right .btn{flex:1;justify-content:center;min-width:70px;}
 
-  /* Cards full width */
-  .card,.card2{padding:13px 14px;}
+  /* ── CARDS ── */
+  .card,.card2{padding:12px 13px;}
+  .card-h{font-size:12px;}
 
-  /* Habit table scroll */
-  .htable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .htable{min-width:420px;}
+  /* ── FORMS ── */
+  .f-input,.f-select,.f-textarea{
+    font-size:15px;padding:10px 11px;
+  }
 
-  /* Bigger touch targets */
-  .btn{padding:9px 14px;font-size:13px;}
-  .btn-sm{padding:7px 11px;font-size:12px;}
-  .btn-xs{padding:5px 9px;font-size:11px;}
-  .ichk{width:18px;height:18px;min-width:18px;}
-  .hcell{width:32px;height:32px;}
-  .sb-item{padding:10px 16px;font-size:13px;}
+  /* ── BUTTONS ── */
+  .btn{padding:8px 13px;font-size:12px;}
+  .btn-sm{padding:6px 10px;font-size:11px;}
 
-  /* Forms full width */
-  .f-input,.f-select,.f-textarea{font-size:14px;padding:10px 12px;}
+  /* ── MODAL slides up from bottom ── */
+  .modal-bg{align-items:flex-end !important;}
+  .modal{
+    width:100% !important;max-width:100% !important;
+    border-radius:12px 12px 0 0 !important;
+    max-height:88vh;padding:18px 15px;
+  }
 
-  /* Modal full screen on mobile */
-  .modal-bg{align-items:flex-end;}
-  .modal{width:100%;max-width:100%;border-radius:var(--rad) var(--rad) 0 0;max-height:90vh;padding:20px 16px;}
+  /* ── HABIT TABLE ── */
+  .hcell{width:30px;height:30px;font-size:11px;}
 
-  /* Decade grid 2 cols */
-  .g4.decade-grid{grid-template-columns:1fr 1fr !important;}
+  /* ── CHAIN DOTS ── */
+  .chain-dot{width:10px;height:10px;border-radius:2px;}
 
-  /* Item rows bigger touch */
-  .item-row{padding:10px 0;}
-  .itxt{font-size:13px;}
-  .ibtn{width:24px;height:24px;}
+  /* ── QURAN TRACKER ── */
+  #quranTracker{
+    display:grid !important;
+    grid-template-columns:repeat(6,1fr) !important;
+    gap:4px;
+  }
+  .juz-box{width:100% !important;aspect-ratio:1;}
 
-  /* Score buttons wrap */
-  .score-buttons-wrap{display:flex;flex-wrap:wrap;gap:4px;}
+  /* ── ITEM ROWS ── */
+  .item-row{padding:9px 0;}
+  .itxt{font-size:12px;}
 
-  /* Life stats 2x2 */
-  #life-stats-grid{grid-template-columns:1fr 1fr !important;}
-
-  /* Phase blocks */
-  .phase-block{padding:10px 12px;}
-
-  /* Daily log calendar */
-  .dl-cell{font-size:11px;}
-
-  /* Chain dots smaller */
-  .chain-dot{width:10px;height:10px;}
-
-  /* Quran tracker 6 per row */
-  #quranTracker{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;}
-  .juz-box{width:100%;aspect-ratio:1;}
-
-  /* Hide year selector text overflow */
-  .sb-year-sel{font-size:13px;}
-
-  /* Memories columns */
+  /* ── MEMORIES ── */
   #memories-grid{columns:1 !important;}
 
-  /* Top padding for hamburger */
-  .page{padding-top:60px;}
+  /* ── DECADE GRID ── */
+  .g4{grid-template-columns:1fr 1fr !important;}
 
-  /* Banner info paragraph hide on tiny screens */
-  @media (max-width:380px){
-    .banner-info p{display:none;}
-    .g4.stats-grid{grid-template-columns:1fr 1fr !important;}
+  /* ── LIFE STATS ── */
+  .g4.mb16{grid-template-columns:1fr 1fr !important;}
+
+  /* ── SCORE BUTTONS ── */
+  .score-btn{width:28px;height:28px;font-size:11px;}
+
+  /* ── IMAN BUTTONS ── */
+  .iman-btn{width:32px;height:32px;font-size:11px;}
+
+  /* ── BODY ── */
+  body{
+    overflow-y:auto !important;
+    height:auto !important;
   }
+  html{
+    overflow-y:auto !important;
+    height:auto !important;
+  }
+}
+
+@media (max-width:380px){
+  #dash-stats-grid{grid-template-columns:1fr 1fr !important;}
+  .pg-title{font-size:15px;}
 }
 
 @media (min-width:769px){
   .hamburger{display:none !important;}
   .mobile-nav{display:none !important;}
-  .sidebar{left:0 !important;}
-  .main{margin-left:var(--sb);}
+  .sidebar{
+    position:fixed !important;
+    left:0 !important;
+    width:var(--sb) !important;
+    height:100vh !important;
+  }
+  .main{margin-left:var(--sb) !important;}
+  .shell{display:flex;height:100vh;overflow:hidden;}
 }
-
-
-/* Touch action for all interactive elements */
-.hcell, .ichk, .juz-box, .chain-dot, .iman-btn, .score-btn, .btn, .sb-item, .mnav-item {
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
-/* Prevent double-tap zoom on buttons */
-button, .btn, .ichk, .hcell { touch-action: manipulation; }
-/* Smooth scrolling on iOS */
-.main, .sidebar, .modal { -webkit-overflow-scrolling: touch; }
 
 </style>
 </head>
@@ -470,7 +527,7 @@ button, .btn, .ichk, .hcell { touch-action: manipulation; }
 </button>
 <nav class="mobile-nav">
   <div class="mobile-nav-inner">
-    <div class="mnav-item active" id="mn-dashboard" onclick="mobileNav('dashboard','mn-dashboard')">
+    <div class="mnav-item" id="mn-dashboard" onclick="mobileNav('dashboard','mn-dashboard')">
       <div class="mnav-icon">⚡</div><div class="mnav-lbl">Home</div>
     </div>
     <div class="mnav-item" id="mn-dailylog" onclick="mobileNav('dailylog','mn-dailylog')">
@@ -555,7 +612,7 @@ button, .btn, .ichk, .hcell { touch-action: manipulation; }
     <div class="banner-big" id="banner-year">2026</div>
     <div class="banner-info"><h2 id="banner-title">Year of Transformation</h2><p id="banner-sub">Engineering student → Believer · Warrior · Builder · Anchor · Lahore</p></div>
   </div>
-  <div class="g4 stats-grid mb16">
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-bottom:16px;" id="dash-stats-grid">
     <div class="stat"><div class="stat-n" style="color:var(--g)" id="d-streak">0</div><div class="stat-l">Day streak</div></div>
     <div class="stat"><div class="stat-n" style="color:var(--a)" id="d-earned">₨0</div><div class="stat-l">Earned this year</div></div>
     <div class="stat"><div class="stat-n" style="color:var(--b)" id="d-workouts">0</div><div class="stat-l">Workouts</div></div>
@@ -602,7 +659,7 @@ button, .btn, .ichk, .hcell { touch-action: manipulation; }
 <div class="page" id="p-dailylog">
   <div class="topbar">
     <div><div class="pg-title">Daily Log</div><div class="pg-sub">Every day of your life — logged forever</div></div>
-    <div class="topbar-right" style="flex-wrap:wrap;">
+    <div class="topbar-right">
       <button class="btn btn-ghost btn-sm" onclick="prevMonth()">← Prev</button>
       <span id="dl-month-label" style="font-family:var(--fh);font-weight:600;font-size:13px;color:var(--text);min-width:110px;text-align:center;"></span>
       <button class="btn btn-ghost btn-sm" onclick="nextMonth()">Next →</button>
@@ -645,7 +702,7 @@ button, .btn, .ichk, .hcell { touch-action: manipulation; }
   </div>
   <div class="card mb12" style="margin-bottom:12px;">
     <div class="card-h"><span>This Week <span id="week-range-lbl" style="font-weight:400;color:var(--text3);font-size:11px;"></span></span></div>
-    <div class="htable-wrap"><table class="htable" id="habitTable"></table></div>
+    <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table class="htable" id="habitTable"></table></div>
     <div style="display:flex;gap:10px;margin-top:10px;">
       <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text3);"><div style="width:11px;height:11px;background:var(--g);border-radius:2px;"></div>Done</div>
       <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text3);"><div style="width:11px;height:11px;background:var(--bg3);border-radius:2px;border:1px solid var(--border2);"></div>Missed</div>
@@ -763,7 +820,7 @@ button, .btn, .ichk, .hcell { touch-action: manipulation; }
     <div><div class="pg-title">Income Log <span id="income-year-lbl" style="color:var(--a)"></span></div><div class="pg-sub">Track every rupee · Save 40% before spending anything</div></div>
     <button class="btn btn-g" onclick="openModal('add-income')">+ Log Income</button>
   </div>
-  <div class="g4 stats-grid mb16" style="margin-bottom:16px;">
+  <div class="g4 mb16" style="margin-bottom:16px;">
     <div class="stat"><div class="stat-n" style="color:var(--a)" id="inc-total">₨0</div><div class="stat-l">This year earned</div></div>
     <div class="stat"><div class="stat-n" style="color:var(--g)" id="inc-saved">₨0</div><div class="stat-l">Saved (40%)</div></div>
     <div class="stat"><div class="stat-n" style="color:var(--b)" id="inc-invested">₨0</div><div class="stat-l">Invested (20%)</div></div>
@@ -858,13 +915,13 @@ button, .btn, .ichk, .hcell { touch-action: manipulation; }
 <!-- ===== LIFE STATS ===== -->
 <div class="page" id="p-lifeStats">
   <div class="topbar"><div><div class="pg-title">Life Stats</div><div class="pg-sub">All-time numbers that compound across every year</div></div></div>
-  <div class="g4 stats-grid mb16" style="margin-bottom:16px;">
+  <div class="g4 mb16" style="margin-bottom:16px;">
     <div class="life-stat"><div class="life-stat-n" style="color:var(--g)" id="ls-prayers">0</div><div class="life-stat-l">Total prayers logged</div></div>
     <div class="life-stat"><div class="life-stat-n" style="color:var(--b)" id="ls-workouts">0</div><div class="life-stat-l">Total workouts</div></div>
     <div class="life-stat"><div class="life-stat-n" style="color:var(--a)" id="ls-earned">₨0</div><div class="life-stat-l">All-time earned</div></div>
     <div class="life-stat"><div class="life-stat-n" style="color:var(--p)" id="ls-books">0</div><div class="life-stat-l">Books read</div></div>
   </div>
-  <div class="g4 stats-grid mb16" style="margin-bottom:16px;">
+  <div class="g4 mb16" style="margin-bottom:16px;">
     <div class="life-stat"><div class="life-stat-n" style="color:var(--t)" id="ls-khatam">0</div><div class="life-stat-l">Quran khatams</div></div>
     <div class="life-stat"><div class="life-stat-n" style="color:var(--g)" id="ls-fajr">0</div><div class="life-stat-l">Fajr on time (logged)</div></div>
     <div class="life-stat"><div class="life-stat-n" style="color:var(--pink)" id="ls-travel">0</div><div class="life-stat-l">Countries visited</div></div>
@@ -916,7 +973,7 @@ button, .btn, .ichk, .hcell { touch-action: manipulation; }
 <div class="page" id="p-memories">
   <div class="topbar"><div><div class="pg-title">Memories</div><div class="pg-sub">Great moments of your life — captured forever</div></div><button class="btn btn-g" onclick="openModal('add-memory')">+ Add Memory</button></div>
   <div style="margin-bottom:12px;display:flex;gap:6px;flex-wrap:wrap;" id="memory-year-filters"></div>
-  <div id="memories-grid" style="columns:2;gap:12px;column-gap:12px;"></div>
+  <div id="memories-grid" style="columns:2;gap:12px;"></div>
 </div>
 
 <!-- ===== TRAVEL ===== -->
@@ -1545,7 +1602,7 @@ function renderHabits() {
   for (let i = 364; i >= 0; i--) {
     const d = new Date(now.getTime() - i*86400000);
     const key = d.toISOString().slice(0,10);
-    const dot = document.createElement('div'); dot.style.touchAction='manipulation';dot.className = 'chain-dot' + ((yd.chainDays&&yd.chainDays[key])?' on':'');
+    const dot = document.createElement('div'); dot.className = 'chain-dot' + ((yd.chainDays&&yd.chainDays[key])?' on':'');
     dot.title = key;
     dot.onclick = () => { if (!yd.chainDays) yd.chainDays = {}; yd.chainDays[key] = !yd.chainDays[key]; dot.classList.toggle('on', yd.chainDays[key]); updateSidebar(); saveData(); };
     chain.appendChild(dot);
@@ -1620,7 +1677,7 @@ function renderImanBtns() {
   const el = document.getElementById('imanBtns'); if (!el) return; el.innerHTML = '';
   const msgs = ['استغفر الله — reflect deeply','Push harder tomorrow','Room to grow','Decent day','Solid remembrance','Good connection','Strong iman','Very strong — keep it','Exceptional noor','SubhanAllah — rare blessed day'];
   for (let i = 1; i <= 10; i++) {
-    const b = document.createElement('button'); b.style.touchAction='manipulation';b.className = 'iman-btn' + (S.imanRating===i?' sel':''); b.textContent = i;
+    const b = document.createElement('button'); b.className = 'iman-btn' + (S.imanRating===i?' sel':''); b.textContent = i;
     b.onclick = () => { S.imanRating = i; saveData(); document.querySelectorAll('.iman-btn').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); const msg = document.getElementById('imanMsg'); if(msg) msg.textContent = msgs[i-1]; };
     el.appendChild(b);
   }
@@ -1712,7 +1769,7 @@ function renderWeekly() {
   pillars.forEach(p=>{
     const d=document.createElement('div');d.style.cssText='background:var(--bg2);border:1px solid var(--border);border-radius:var(--rad);padding:12px 14px;margin-bottom:8px;';
     const btns=Array.from({length:10},(_,i)=>{const n=i+1;return`<button class="score-btn" data-p="${p.id}" data-v="${n}" onclick="setWeekScore('${p.id}',${n},this)">${n}</button>`;}).join('');
-    d.innerHTML=`<div style="font-family:var(--fh);font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px;">${p.label}</div><div style="display:flex;gap:4px;flex-wrap:wrap;" class="score-buttons-wrap">${btns}</div>`;
+    d.innerHTML=`<div style="font-family:var(--fh);font-size:12px;font-weight:600;color:var(--text);margin-bottom:8px;">${p.label}</div><div style="display:flex;gap:3px;flex-wrap:wrap;">${btns}</div>`;
     sb.appendChild(d);
   });
   renderAllWeeklyReviews();
@@ -1784,7 +1841,7 @@ function renderQuranTracker(){
   const el=document.getElementById('quranTracker');if(!el)return;el.innerHTML='';
   const yd=YD();
   for(let i=1;i<=30;i++){
-    const d=document.createElement('div');d.style.touchAction='manipulation';d.className='juz-box'+((yd.quranDone&&yd.quranDone[i])?' done':'');
+    const d=document.createElement('div');d.className='juz-box'+((yd.quranDone&&yd.quranDone[i])?' done':'');
     d.innerHTML=(yd.quranDone&&yd.quranDone[i])?`<strong>✓</strong><span style="font-size:8px;">Juz ${i}</span>`:`<strong>${i}</strong><span>Juz</span>`;
     d.onclick=()=>{if(!yd.quranDone)yd.quranDone={};yd.quranDone[i]=!yd.quranDone[i];saveData();renderQuranTracker();};
     el.appendChild(d);
@@ -2121,57 +2178,64 @@ function init(){
 
 init();
 
-// ============================================================
-// MOBILE FUNCTIONS
-// ============================================================
+// =====================================================
+// MOBILE SYSTEM
+// =====================================================
 function toggleSidebar(){
-  const sb = document.getElementById('sidebarEl');
-  const ov = document.getElementById('sidebarOverlay');
-  const hb = document.getElementById('hamburgerBtn');
-  if(!sb) return;
-  const isOpen = sb.classList.contains('open');
-  if(isOpen){ sb.classList.remove('open'); ov.classList.remove('open'); }
-  else { sb.classList.add('open'); ov.classList.add('open'); }
+  const sb=document.getElementById('sidebarEl');
+  const ov=document.getElementById('sidebarOverlay');
+  if(!sb)return;
+  const isOpen=sb.classList.contains('open');
+  if(isOpen){sb.classList.remove('open');ov.classList.remove('open');}
+  else{sb.classList.add('open');ov.classList.add('open');}
 }
 
 function closeSidebar(){
-  const sb = document.getElementById('sidebarEl');
-  const ov = document.getElementById('sidebarOverlay');
-  if(sb) sb.classList.remove('open');
-  if(ov) ov.classList.remove('open');
+  const sb=document.getElementById('sidebarEl');
+  const ov=document.getElementById('sidebarOverlay');
+  if(sb)sb.classList.remove('open');
+  if(ov)ov.classList.remove('open');
 }
 
-function mobileNav(pageId, mnId){
-  // Update bottom nav active state
-  document.querySelectorAll('.mnav-item').forEach(x => x.classList.remove('active'));
-  const mn = document.getElementById(mnId);
-  if(mn) mn.classList.add('active');
-  // Navigate to page
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
-  const page = document.getElementById('p-' + pageId);
-  if(page) page.classList.add('active');
+function mobileNav(pageId,mnId){
+  document.querySelectorAll('.mnav-item').forEach(x=>x.classList.remove('active'));
+  const mn=document.getElementById(mnId);
+  if(mn)mn.classList.add('active');
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
+  const page=document.getElementById('p-'+pageId);
+  if(page)page.classList.add('active');
   renderPage(pageId);
   closeSidebar();
   window.scrollTo(0,0);
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
 }
 
-// Override nav to also close sidebar on mobile and update bottom nav
-const _origNav = nav;
-function nav(id, el){
+// Patch nav() to handle mobile too
+const _navOrig=window.nav||function(){};
+window.nav=function(id,el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.sb-item').forEach(i=>i.classList.remove('active'));
-  const page = document.getElementById('p-'+id);
-  if(page) page.classList.add('active');
-  if(el) el.classList.add('active');
+  const page=document.getElementById('p-'+id);
+  if(page)page.classList.add('active');
+  if(el)el.classList.add('active');
   renderPage(id);
   closeSidebar();
   window.scrollTo(0,0);
+  document.documentElement.scrollTop=0;
+  document.body.scrollTop=0;
   // sync bottom nav
-  const mobileMap = {dashboard:'mn-dashboard',dailylog:'mn-dailylog',habits:'mn-habits',journal:'mn-journal'};
+  const mobileMap={dashboard:'mn-dashboard',dailylog:'mn-dailylog',habits:'mn-habits',journal:'mn-journal'};
   document.querySelectorAll('.mnav-item').forEach(x=>x.classList.remove('active'));
-  if(mobileMap[id]){ const mn=document.getElementById(mobileMap[id]); if(mn) mn.classList.add('active'); }
-}
+  if(mobileMap[id]){const mn=document.getElementById(mobileMap[id]);if(mn)mn.classList.add('active');}
+};
+
+// Set initial bottom nav state
+document.addEventListener('DOMContentLoaded',function(){
+  const mn=document.getElementById('mn-dashboard');
+  if(mn)mn.classList.add('active');
+});
 
 </script>
 </body></html>
